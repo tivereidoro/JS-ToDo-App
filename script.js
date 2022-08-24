@@ -4,17 +4,25 @@
 const submitButton = document.querySelector('#new-task-submit');
 
 window.addEventListener('DOMContentLoaded', () => {
-    
+    const tasks = localStorage.getItem('tasks');
+    const taskArr = JSON.parse(tasks);
+
+    taskArr.forEach((task) => {
+        createTask();
+    })
 });
 
 submitButton.addEventListener('click', (event) => {
   event.preventDefault();
-  createTask();
+
+  const inputBar = document.querySelector('#new-task-input');
+  createTask(inputBar.value);
+  
+  saveData();
 })
 
-const createTask = () => {
+const createTask = (taskData) => {
   const taskContainer = document.querySelector('#tasks');
-  const inputBar = document.querySelector('#new-task-input');
   
   const todoDiv = document.createElement('div');
   todoDiv.setAttribute('class', 'task');
