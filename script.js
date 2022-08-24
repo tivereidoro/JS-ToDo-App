@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const taskArr = JSON.parse(tasks);
 
     taskArr.forEach((task) => {
-        createTask();
+        createTask(task);
     })
 });
 
@@ -17,8 +17,11 @@ submitButton.addEventListener('click', (event) => {
 
   const inputBar = document.querySelector('#new-task-input');
   createTask(inputBar.value);
-  
+
   saveData();
+
+  inputBar.value = '';
+
 })
 
 const createTask = (taskData) => {
@@ -36,7 +39,7 @@ const createTask = (taskData) => {
   const text = document.createElement('input');
   text.setAttribute('type', 'text');
   text.setAttribute('class', 'text');
-  text.setAttribute('value', inputBar.value);
+  text.setAttribute('value', taskData);
   text.setAttribute('readonly', 'readonly');
   
   const edit = document.createElement('button');
@@ -66,7 +69,6 @@ const createTask = (taskData) => {
   actions.appendChild(deleteButton);
   taskContainer.appendChild(todoDiv);
 
-  inputBar.value = '';
 
   deleteButton.addEventListener('click', () => {
     taskContainer.removeChild(todoDiv);
