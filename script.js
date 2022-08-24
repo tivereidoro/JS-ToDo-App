@@ -61,6 +61,12 @@ const createTask = (taskData) => {
   deleteButton.setAttribute('class', 'delete');
   deleteButton.textContent = 'DELETE';
 
+  deleteButton.addEventListener('click', () => {
+    taskContainer.removeChild(task);
+    
+    saveData();
+  })
+
   // Now we'll fix(append) all the required elements in where they should be.
   todoDiv.appendChild(content);
   todoDiv.appendChild(actions);
