@@ -2,6 +2,11 @@
 // const taskContainer = document.querySelector('#tasks');
 
 const submitButton = document.querySelector('#new-task-submit');
+
+window.addEventListener('DOMContentLoaded', () => {
+    
+});
+
 submitButton.addEventListener('click', (event) => {
   event.preventDefault();
   createTask();
