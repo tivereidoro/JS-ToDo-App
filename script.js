@@ -62,8 +62,8 @@ const createTask = (taskData) => {
   deleteButton.textContent = 'DELETE';
 
   deleteButton.addEventListener('click', () => {
-    taskContainer.removeChild(task);
-    
+    taskContainer.removeChild(todoDiv);
+
     saveData();
   })
 
